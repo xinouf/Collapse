@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab选项卡</title>
+</head>
+<style>
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 16px;
+        border-radius: 4px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .tabs .tab-header {
+        position: relative;
+        transform: translateX(0);
+        display: flex;
+        line-height: 30px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .tabs .tab-item {
+        margin-right: 30px;
+        cursor: pointer;
+        color: blue;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .tabs .line {
+        position: absolute;
+        background: darkcyan;
+        top: 100%;
+        /* width: 56px; */
+        height: 2px;
+        transition: all .10s;
+    }
+
+    .tabs .tab-item.active {
+        color: darkcyan;
+    }
+
+    .tabs .tab-panel {
+        padding: 16px 0;
+        display: none;
+    }
+
+    .tabs .tab-panel.active {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Tab 选项卡</h2>
+        <div class="tabs">
+            <div class="tab-header">
+                <span class="tab-item active">用户管理</span>
+                <span class="tab-item">配置管理</span>
+                <span class="tab-item">角色管理</span>
+                <span class="tab-item">定时补偿任务</span>
+                <span class="line"></span>
+            </div>
+            <div class="div-content">
+                <div class="tab-panel active">用户管理(内容)</div>
+                <div class="tab-panel">配置管理(内容)</div>
+                <div class="tab-panel">角色管理(内容)</div>
+                <div class="tab-panel">定时补偿任务(内容)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Tab 选项卡2</h2>
+        <div class="tabs">
+            <div class="tab-header">
+                <span class="tab-item active">用户管理</span>
+                <span class="tab-item">配置管理</span>
+                <span class="tab-item">角色管理</span>
+                <span class="tab-item">定时补偿任务</span>
+                <span class="line"></span>
+            </div>
+            <div class="div-content">
+                <div class="tab-panel active">用户管理(内容)</div>
+                <div class="tab-panel">配置管理(内容)</div>
+                <div class="tab-panel">角色管理(内容)</div>
+                <div class="tab-panel">定时补偿任务(内容)</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    class Tabs {
+        constructor($container) {
+            this.$container = $container
+            this.$$tabItems = $container.querySelectorAll('.tab-item')
+            this.$$tabPanel = $container.querySelectorAll('.tab-panel')
+            this.$line = $container.querySelector('.line')
+            this.init()
+            this.bind()
+        }
+        init() {
+            this.$line.style.width = this.$$tabItems[0].offsetWidth + 'px'
+
+        }
+        bind() {
+            let self=this
+            self.$$tabItems.forEach($tab => {
+                $tab.onclick = function () {
+                    self.$$tabItems.forEach($tab => $tab.classList.remove('active'))
+                    this.classList.add('active')
+                    /* console.log(this.offsetWidth)
+                    console.log(this.offsetLeft) */
+                   self.$line.style.width = this.offsetWidth + 'px'
+                    self.$line.style.transform = `translateX(${this.offsetLeft}px)`
+
+                    let index = [...self.$$tabItems].indexOf(this)
+                    self.$$tabPanel.forEach($tab => $tab.classList.remove('active'))
+                    self.$$tabPanel[index].classList.add('active')
+                }
+            })
+        }   
+    }
+    document.querySelectorAll('.tabs').forEach($container=>new Tabs($container))
+/*     new Tabs(document.querySelectorAll('.tabs')[0])
+    new Tabs(document.querySelectorAll('.tabs')[1]) */
+</script>
+
+</html>
