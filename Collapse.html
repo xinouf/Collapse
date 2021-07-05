@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collapse</title>
+</head>
+<style>
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 16px;
+        border-radius: 4px;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .collapse .item {
+        border-top: 1.5px solid #ddd;
+    }
+
+    .collapse .item:last-child {
+        border-bottom: 1.5px solid #ddd;
+    }
+
+    .collapse .item-header {
+        line-height: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .collapse .item-header::after {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-right: 2px solid hotpink;
+        border-top: 2px solid hotpink;
+        margin-left: auto;
+        transition: all .3s;
+        transform: rotate(45deg)
+    }
+
+    .collapse .item.active .item-header::after {
+        content: '';
+        transform: rotate(135deg)
+    }
+
+    .collapse .item-content {
+        font-weight: 340;
+        font-size: 14px;
+        /* padding-bottom: 14px; */
+        height: 0;
+        overflow: hidden;
+        transition: all .3s;
+
+    }
+
+    .collapse .item.active .item-content {
+        padding-bottom: 14px;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h2>Collapse</h2>
+        <div class="collapse">
+            <div class="item active">
+                <div class="item-header">埃塞俄比亚政府军7000多人被提格雷地方武装俘虏，徒步4天“游街示众”</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">4600亿芯片巨头发布重要公告：核心技术人员离职</div>
+                <div class="item-content">
+                    中芯国际(688981)7月4日晚间公告，公司核心技术人员吴金刚博士近日因个人原因申请辞去相关职务并办理完成离职手续。离职后，吴金刚博士不再担任公司任何职务.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">把象群叫醒需要几步？“贪玩象”一番花式操作后……没得逞！</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">环时锐评：国家要求滴滴出行下架整改为何深得人心</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <h2>Collapse</h2>
+        <div class="collapse">
+            <div class="item active">
+                <div class="item-header">埃塞俄比亚政府军7000多人被提格雷地方武装俘虏，徒步4天“游街示众”</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">4600亿芯片巨头发布重要公告：核心技术人员离职</div>
+                <div class="item-content">
+                    中芯国际(688981)7月4日晚间公告，公司核心技术人员吴金刚博士近日因个人原因申请辞去相关职务并办理完成离职手续。离职后，吴金刚博士不再担任公司任何职务.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">把象群叫醒需要几步？“贪玩象”一番花式操作后……没得逞！</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-header">环时锐评：国家要求滴滴出行下架整改为何深得人心</div>
+                <div class="item-content">
+                    据《纽约时报》、法新社当地时间7月2日报道，有7000多名埃塞俄比亚政府军士兵被提格雷军队所俘，这些被俘士兵徒步行进了4天，到达提格雷州首府默克莱市（Mekelle），此后将被带到该市北部的一所大型监狱内.<br>
+                    从媒体所拍摄到的画面来看，由于被俘士兵人数众多，这批俘虏群在街上行进时显得密密麻麻，场面壮观。《纽约时报》形容称，这犹如一场“游街示众”，生动形象地展示了“非洲最强大军队之一”的埃塞俄比亚政府军所遭受到的“巨大损失”。
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+    class Collapse {
+        constructor($container, type = 1) {
+            this.$container = $container
+            this.$$items = $container.querySelectorAll('.item')
+            this.type = type
+            this.bind()
+        }
+        bind() {
+           let self = this
+            this.$$items.forEach($it => {
+                $it.onclick = function () {
+                    if (self.type == 2) {
+                        this.classList.toggle('active')
+                    } else if (self.type == 1) {
+                        self.$$items.forEach($it => $it.classList.remove('active'))
+                        this.classList.add('active')
+                    }
+
+                }
+
+            });
+        }
+    }
+    new Collapse(document.querySelectorAll('.collapse')[0])
+    new Collapse(document.querySelectorAll('.collapse')[1],2)
+</script>
+</body>
+</html>
