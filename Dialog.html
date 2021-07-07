@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 16px;
+            border-radius: 4px;
+            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        .button {
+            width: 70px;
+            height: 46px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #303030;
+            cursor: pointer;
+            border: 1.5px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            position: relative;
+        }
+
+        .dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            opacity: 1;
+            transition: all .3s;
+        }
+
+        .dialog.apper {
+            opacity: 0;
+        }
+
+        .dialog.show {
+            display: block;
+        }
+
+        .dialog .main {
+            position: absolute;
+            background-color: #fff;
+            width: 500px;
+            height: auto;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 40%;
+            padding: 5px 15px;
+            border-radius: 3px;
+            opacity: 1;
+            transition: all 3s;
+            
+        }
+
+        .dialog.apper .main {
+        
+            opacity: 0;
+        }
+
+
+        .dialog .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dialog .header .close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            cursor: pointer;
+            padding: 3px;
+        }
+
+        .dialog .footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .dialog .footer .button {
+            margin-left: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Dialog</h2>
+        <button class="button open-frame">开弹窗</button>
+        <div class="dialog">
+            <div class="main">
+                <div class="header">提示
+                    <span class="close">X</span>
+                </div>
+                <div class="content">
+                    <p>这是一段消息</p>
+                </div>
+                <div class="footer">
+                    <button class="button cancel">取消</button>
+                    <button class="button sure">确定</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+        class Dialog {
+            constructor($root) {
+                this.$root = $root
+                this.bind()
+
+            }
+            bind() {
+                let self = this
+                this.$root.querySelector('.close').onclick = function (e) {
+                    self.hide()
+                }
+                this.$root.querySelector('.cancel').onclick = function (e) {
+                    self.hide()
+                }
+                this.$root.querySelector('.sure').onclick = function (e) {
+                    self.hide()
+                }
+            }
+            hide() {
+                this.$root.classList.add('apper')
+                setTimeout(() => this.$root.classList.remove('show'), 400)
+
+
+            }
+            show() {
+                setTimeout(() => this.$root.classList.remove('apper'), 400)
+                this.$root.classList.add('show')
+            }
+        }
+
+        let dialog = new Dialog(document.querySelector('.dialog'))
+
+
+        document.querySelector('.open-frame').onclick = function (e) {
+            dialog.show()
+        }
+    </script>
+</body>
+
+</html>
